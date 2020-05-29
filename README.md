@@ -1,5 +1,8 @@
 # Лабораторные работы по курсу "Параллельное программирование"
 
+[![made-with-c](https://img.shields.io/badge/Made%20with-C-3848A5.svg)](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html)
+[![made-with-cuda](https://img.shields.io/badge/Made%20with-CUDA-70B52B.svg)](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html)
+
 ## Лабораторная работа 1
 
 [**Ссылка на директорию**](<https://github.com/zsxoff/course-parallel-programming/tree/master/laboratory-1>)
