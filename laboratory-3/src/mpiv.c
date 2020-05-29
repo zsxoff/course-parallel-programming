@@ -23,9 +23,7 @@ int main(int argc, char *argv[]) {
   double start_time;
   double end_time;
 
-  // -- get MPI routine.
-  //
-
+  // Get MPI routine.
   int i;
 
   MPI_Init(&argc, &argv);
@@ -42,19 +40,15 @@ int main(int argc, char *argv[]) {
 
   const int sendcount = N / proc_num;
 
-  // -- fill displs blocks.
-  //
-
+  // Fill displs blocks.
   int *displs = (int *)malloc(sizeof(int) * proc_num);
 
   for (i = 0; i < proc_num; ++i) {
     displs[i] = i * sendcount;
   }
 
-  // -- fill sendcounts blocks sizes of k-1 equal parts plus (N - k * sendcount)
+  // Fill sendcounts blocks sizes of k-1 equal parts plus (N - k * sendcount)
   // part.
-  //
-
   int *sendcounts = (int *)malloc(sizeof(int) * proc_num);
 
   int k = 0;
@@ -66,16 +60,15 @@ int main(int argc, char *argv[]) {
 
   sendcounts[k] = N - sendcount * k;
 
-  // -- init data.
-  //
-
+  // Init data.
   if (proc_rank == 0) {
     a = malloc(sizeof(double) * N);
     b = malloc(sizeof(double) * N);
     c = malloc(sizeof(double) * N);
 
-    // -- manual init (change global N).
-
+    /*
+    // Manual init.
+    // ! WARNING ! Change global NMAX before init.
     a[0] = 1, b[0] = 2;
     a[1] = 2, b[1] = 4;
     a[2] = 1, b[2] = 1;
@@ -83,12 +76,12 @@ int main(int argc, char *argv[]) {
     a[4] = 2, b[4] = 2;
     a[5] = 3, b[5] = 3;
     a[6] = 1, b[6] = 2;
+    */
 
-    // for (i = 0; i < N; ++i)
-    // {
-    //     a[i] = 1.0;
-    //     b[i] = 2.0;
-    // }
+    for (i = 0; i < N; ++i) {
+      a[i] = 1.0;
+      b[i] = 2.0;
+    }
   }
 
   a_part = (double *)malloc(sendcounts[proc_rank] * sizeof(double));
@@ -97,9 +90,7 @@ int main(int argc, char *argv[]) {
 
   start_time = MPI_Wtime();
 
-  // -- sends on procs.
-  //
-
+  // Sends on procs.
   MPI_Scatterv(a,                     // *sendbuf
                sendcounts,            // sendcounts[]
                displs,                // displs[]
@@ -122,16 +113,12 @@ int main(int argc, char *argv[]) {
                MPI_COMM_WORLD         // comm
   );
 
-  // -- get sum of parts.
-  //
-
+  // Get sum of parts.
   for (i = 0; i < sendcounts[proc_rank]; i++) {
     c_part[i] = a_part[i] + b_part[i];
   }
 
-  // -- assembly.
-  //
-
+  // Assembly.
   MPI_Gatherv(c_part,                // *sendbuf
               sendcounts[proc_rank], // sendcount
               MPI_DOUBLE,            // sendtype

@@ -54,9 +54,7 @@ static void profile_methods(const double *a, const double *b, double *c,
 
   double start_time, end_time;
 
-  // -- guided.
-  //
-
+  // Method: guided.
   printf("\nGuided:\n");
 
   start_time = omp_get_wtime();
@@ -66,9 +64,7 @@ static void profile_methods(const double *a, const double *b, double *c,
   printf("\nTIME OF WORK IS: %f\n", end_time - start_time);
   print_arr(c, n);
 
-  // -- dynamic.
-  //
-
+  // Method: dynamic.
   printf("\nDynamic:\n");
 
   start_time = omp_get_wtime();
@@ -78,9 +74,7 @@ static void profile_methods(const double *a, const double *b, double *c,
   printf("\nTIME OF WORK IS: %f\n", end_time - start_time);
   print_arr(c, n);
 
-  // -- static.
-  //
-
+  // Method: static.
   printf("\nStatic:\n");
 
   start_time = omp_get_wtime();
@@ -93,9 +87,11 @@ static void profile_methods(const double *a, const double *b, double *c,
 
 int main(int argc, char *argv[]) {
   const int n = NMAX;
+
   double *a = malloc(sizeof(double) * n);
   double *b = malloc(sizeof(double) * n);
   double *c = malloc(sizeof(double) * n);
+
   for (int i = 0; i < n; ++i) {
     a[i] = 1;
     b[i] = 2;

@@ -6,11 +6,11 @@ int main(int argc, char *argv[]) {
 
   const double t1 = MPI_Wtime();
 
-  /* Number in group */
+  // Number in group.
   int rank;
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
-  /* Group size */
+  // Group size.
   int ranksize;
   MPI_Comm_size(MPI_COMM_WORLD, &ranksize);
 
@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
 
   const double t2 = MPI_Wtime();
 
-  /* Print time */
+  // Print time.
   printf("proc %d sec %f\n", rank, t2 - t1);
 
   MPI_Finalize();

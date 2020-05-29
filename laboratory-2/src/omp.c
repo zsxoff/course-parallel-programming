@@ -79,21 +79,22 @@ int main(int argc, char *argv[]) {
 
   double *a = malloc(sizeof(double) * N);
 
-  // -- fill array.
-  //
+  // Fill array.
 
-  // -- manual init (hey you, change global N).
-
-  //  a[0] = 1;
-  //  a[1] = 2;
-  //  a[2] = 3;
-  //  a[3] = 4;
-  //  a[4] = 5;
-  //  a[5] = 6;
-  //  a[6] = 7;
-  //  a[7] = 8;
-  //  a[8] = 9;
-  //  a[9] = 0;
+  /*
+  // Manual init.
+  // ! WARNING ! Change global NMAX before init.
+   a[0] = 1;
+   a[1] = 2;
+   a[2] = 3;
+   a[3] = 4;
+   a[4] = 5;
+   a[5] = 6;
+   a[6] = 7;
+   a[7] = 8;
+   a[8] = 9;
+   a[9] = 0;
+   */
 
   for (i = 0; i < NMAX; ++i) {
     a[i] = 1.0;
@@ -105,9 +106,7 @@ int main(int argc, char *argv[]) {
   printf("OpenMP Threads: %d\n", OMP_THREADS);
   printf("Array size: %d", N);
 
-  // -- default.
-  //
-
+  // Method: default.
   sum = 0.0;
   start_time = omp_get_wtime();
   sum = arr_sum_default(a, N);
@@ -117,9 +116,7 @@ int main(int argc, char *argv[]) {
   printf("\nTotal Sum = %10.2f", sum);
   printf("\nTIME OF WORK IS %f ", end_time - start_time);
 
-  // -- reduction.
-  //
-
+  // Method: reduction.
   start_time = omp_get_wtime();
   sum = arr_sum_reduction(a, N);
   end_time = omp_get_wtime();
@@ -128,9 +125,7 @@ int main(int argc, char *argv[]) {
   printf("\nTotal Sum = %10.2f", sum);
   printf("\nTIME OF WORK IS %f ", end_time - start_time);
 
-  // -- ordered.
-  //
-
+  // Method: ordered.
   start_time = omp_get_wtime();
   sum = arr_sum_ordered(a, N);
   end_time = omp_get_wtime();
@@ -139,9 +134,7 @@ int main(int argc, char *argv[]) {
   printf("\nTotal Sum = %10.2f", sum);
   printf("\nTIME OF WORK IS %f ", end_time - start_time);
 
-  // -- critical.
-  //
-
+  // Method: critical.
   start_time = omp_get_wtime();
   sum = arr_sum_critical(a, N);
   end_time = omp_get_wtime();
@@ -150,9 +143,7 @@ int main(int argc, char *argv[]) {
   printf("\nTotal Sum = %10.2f", sum);
   printf("\nTIME OF WORK IS %f ", end_time - start_time);
 
-  // -- atomic.
-  //
-
+  // Method: atomic.
   start_time = omp_get_wtime();
   sum = arr_sum_atomic(a, N);
   end_time = omp_get_wtime();

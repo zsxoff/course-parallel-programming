@@ -10,12 +10,12 @@ int main(int argc, char *argv[]) {
   int n2b = n * sizeof(int);
   int n2 = n;
 
-  // Выделение памяти на хосте.
+  // Host memory malloc.
   int *a = (int *)calloc(n2, sizeof(int));
   int *b = (int *)calloc(n2, sizeof(int));
   int *c = (int *)calloc(n2, sizeof(int));
 
-  // Инициализация массивов.
+  // Init arrays.
   a[0] = 0;
   a[1] = 1;
   a[2] = 2;
@@ -39,7 +39,7 @@ int main(int argc, char *argv[]) {
     b[i] = 1;
   }
 
-  // Выделение памяти на устройстве.
+  // GPU memory malloc.
   int *adev = NULL;
   cudaError_t cuerr = cudaMalloc((void **)&adev, n2b);
   if (cuerr != cudaSuccess) {
@@ -64,7 +64,7 @@ int main(int argc, char *argv[]) {
     return 0;
   }
 
-  // Создание обработчиков событий.
+  // Make CUDA events.
   cudaEvent_t start, stop;
   float gpuTime = 0.0f;
 
@@ -82,7 +82,7 @@ int main(int argc, char *argv[]) {
     return 0;
   }
 
-  // Копирование данных с хоста на GPU.
+  // Copy from host to GPU.
   cuerr = cudaMemcpy(adev, a, n2b, cudaMemcpyHostToDevice);
   if (cuerr != cudaSuccess) {
     fprintf(stderr, "Cannot copy a array from host to device: %s\n",
@@ -97,7 +97,7 @@ int main(int argc, char *argv[]) {
     return 0;
   }
 
-  // Установка точки старта.
+  // Create start point.
   cuerr = cudaEventRecord(start, 0);
   if (cuerr != cudaSuccess) {
     fprintf(stderr, "Cannot record CUDA event: %s\n",
@@ -105,7 +105,7 @@ int main(int argc, char *argv[]) {
     return 0;
   }
 
-  // Запуск ядра.
+  // Launch kernel.
   int BLOCK_NUMBER = (n + BLOCK_SIZE - 1) / BLOCK_SIZE;
   kernel<<<BLOCK_NUMBER, BLOCK_SIZE>>>(cdev, adev, bdev, n);
 
@@ -116,7 +116,7 @@ int main(int argc, char *argv[]) {
     return 0;
   }
 
-  // Синхронизация устройств.
+  // Synchronize devices.
   cuerr = cudaDeviceSynchronize();
   if (cuerr != cudaSuccess) {
     fprintf(stderr, "Cannot synchronize CUDA kernel: %s\n",
@@ -124,7 +124,7 @@ int main(int argc, char *argv[]) {
     return 0;
   }
 
-  // Установка точки окончания.
+  // Create end point.
   cuerr = cudaEventRecord(stop, 0);
   if (cuerr != cudaSuccess) {
     fprintf(stderr, "Cannot copy c array from device to host: %s\n",
@@ -132,7 +132,7 @@ int main(int argc, char *argv[]) {
     return 0;
   }
 
-  // Копирование результата на хост.
+  // Copy from GPU to host.
   cuerr = cudaMemcpy(c, cdev, n2b, cudaMemcpyDeviceToHost);
   if (cuerr != cudaSuccess) {
     fprintf(stderr, "Cannot copy c array from device to host: %s\n",
@@ -140,7 +140,7 @@ int main(int argc, char *argv[]) {
     return 0;
   }
 
-  // Расчет времени.
+  // Time calculation.
   cuerr = cudaEventElapsedTime(&gpuTime, start, stop);
   printf("time spent executing %s: %.9f seconds\n", "kernel", gpuTime / 1000);
 
@@ -148,8 +148,7 @@ int main(int argc, char *argv[]) {
     printf(c[i]);
   }
 
-  /* Очистка памяти. */
-
+  // Free memory.
   cudaEventDestroy(start);
   cudaEventDestroy(stop);
 

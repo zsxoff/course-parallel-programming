@@ -134,7 +134,6 @@ int main() {
   );
 
   // Multiply A and B on GPU.
-
   clock_t begin = clock();
 
   gpu_blas_mmul(d_A, d_B, d_C, nr_rows_A, nr_cols_A, nr_cols_B);

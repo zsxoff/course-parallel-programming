@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
 
   double t2 = omp_get_wtime();
 
-  /* Print time */
+  // Print time.
   printf("total time: %f\n", (t2 - t1));
 
   return 0;
