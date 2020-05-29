@@ -1,27 +1,27 @@
-# Лабораторные работы по курсу "Параллельное программирование"
+# Course: Parallel Programming
 
 [![made-with-c](https://img.shields.io/badge/Made%20with-C-3848A5.svg)](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html)
 [![made-with-cuda](https://img.shields.io/badge/Made%20with-CUDA-70B52B.svg)](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html)
 
-## Лабораторная работа 1
+## Task №1
 
-[**Ссылка на директорию**](<https://github.com/zsxoff/course-parallel-programming/tree/master/laboratory-1>)
+[**Source directory**](<https://github.com/zsxoff/course-parallel-programming/tree/master/laboratory-1>)
 
-## Лабораторная работа 2
+## Task №2
 
-[**Ссылка на директорию**](<https://github.com/zsxoff/course-parallel-programming/tree/master/laboratory-2>)
+[**Source directory**](<https://github.com/zsxoff/course-parallel-programming/tree/master/laboratory-2>)
 
-## Лабораторная работа 3
+## Task №3
 
-[**Ссылка на директорию**](<https://github.com/zsxoff/course-parallel-programming/tree/master/laboratory-3>)
+[**Source directory**](<https://github.com/zsxoff/course-parallel-programming/tree/master/laboratory-3>)
 
-## Лабораторная работа 4
+## Task №4
 
-[**Ссылка на директорию**](<https://github.com/zsxoff/course-parallel-programming/tree/master/laboratory-4>)
+[**Source directory**](<https://github.com/zsxoff/course-parallel-programming/tree/master/laboratory-4>)
 
-## Лабораторная работа 5
+## Task №5
 
-[**Ссылка на директорию**](<https://github.com/zsxoff/course-parallel-programming/tree/master/laboratory-5>)
+[**Source directory**](<https://github.com/zsxoff/course-parallel-programming/tree/master/laboratory-5>)
 
 ## License
 
