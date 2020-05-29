@@ -7,23 +7,23 @@
 
 ## Task №1
 
-[**Source directory**](<https://github.com/zsxoff/course-parallel-programming/tree/master/laboratory-1>)
+[**Source directory**](<https://github.com/zsxoff/course-parallel-programming/tree/master/task-1>)
 
 ## Task №2
 
-[**Source directory**](<https://github.com/zsxoff/course-parallel-programming/tree/master/laboratory-2>)
+[**Source directory**](<https://github.com/zsxoff/course-parallel-programming/tree/master/task-2>)
 
 ## Task №3
 
-[**Source directory**](<https://github.com/zsxoff/course-parallel-programming/tree/master/laboratory-3>)
+[**Source directory**](<https://github.com/zsxoff/course-parallel-programming/tree/master/task-3>)
 
 ## Task №4
 
-[**Source directory**](<https://github.com/zsxoff/course-parallel-programming/tree/master/laboratory-4>)
+[**Source directory**](<https://github.com/zsxoff/course-parallel-programming/tree/master/task-4>)
 
 ## Task №5
 
-[**Source directory**](<https://github.com/zsxoff/course-parallel-programming/tree/master/laboratory-5>)
+[**Source directory**](<https://github.com/zsxoff/course-parallel-programming/tree/master/task-5>)
 
 ## License
 
