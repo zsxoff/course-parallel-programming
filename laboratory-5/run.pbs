@@ -1,0 +1,11 @@
+#!/bin/bash
+#PBS -N cublas
+#PBS -l walltime=00:00:10
+#PBS -l nodes=1:ppn=1:gpu
+#PBS -j oe
+#PBS -A tk
+
+cd $PBS_O_WORKDIR
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/COMMON/cuda-6.5/lib64
+./cublas
