@@ -1,0 +1,16 @@
+#!/bin/bash
+#PBS -N mpis
+#PBS -A tk
+#PBS -l walltime=00:01:00
+#PBS -l nodes=2:ppn=2
+#PBS -j oe
+
+cd $PBS_O_WORKDIR
+
+module load impi/4
+
+export I_MPI_DEVICE=rdma
+export I_MPI_DEBUG=0
+export I_MPI_FALLBACK_DEVICE=disable
+
+mpirun -r ssh -machinefile $PBS_NODEFILE -np $PBS_NP ./mpis
