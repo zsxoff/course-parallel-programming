@@ -4,7 +4,10 @@
 
 ---
 
-[![made-with-c](https://img.shields.io/badge/Made%20with-C-3848A5.svg?style=flat-square)](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html)[![made-with-mpi](https://img.shields.io/badge/Made%20with-MPI-A90044.svg?style=flat-square)](https://www.mpi-forum.org/)[![made-with-openmp](https://img.shields.io/badge/Made%20with-OpenMP-00747C.svg?style=flat-square)](https://www.openmp.org/)[![made-with-cuda](https://img.shields.io/badge/Made%20with-CUDA-70B52B.svg?style=flat-square)](https://docs.nvidia.com/cuda/)
+[![made-with-c](https://img.shields.io/badge/Made%20with-C-3848A5.svg?style=flat-square)](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html)
+[![made-with-mpi](https://img.shields.io/badge/Made%20with-MPI-A90044.svg?style=flat-square)](https://www.mpi-forum.org/)
+[![made-with-openmp](https://img.shields.io/badge/Made%20with-OpenMP-00747C.svg?style=flat-square)](https://www.openmp.org/)
+[![made-with-cuda](https://img.shields.io/badge/Made%20with-CUDA-70B52B.svg?style=flat-square)](https://docs.nvidia.com/cuda/)
 
 ---
 
